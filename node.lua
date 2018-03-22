@@ -268,7 +268,7 @@ local content = switcher(function()
                 end
                 coltex[1]:draw(0, 281, WIDTH, 900, 0.9)
 
-                CONFIG.font:write(70, 330, current_talk.start_str, 50, CONFIG.fgcolor1.rgba())
+                CONFIG.font_text:write(70, 330, current_talk.start_str, 50, CONFIG.fgcolor1.rgba())
                 if delta > 180*60 then
                     CONFIG.font_text:write(70, 330 + 60, string.format("in %d h", math.floor(delta/3600)), 50, CONFIG.fgcolor1.rgba())
                 elseif delta > 0 then
@@ -312,7 +312,7 @@ local content = switcher(function()
                 end
 
                 return function(y)
-                    CONFIG.font:write(70, y, talk.start_str, 50, CONFIG.fgcolor2.rgb_with_a(alpha))
+                    CONFIG.font_text:write(70, y, talk.start_str, 50, CONFIG.fgcolor2.rgb_with_a(alpha))
                     CONFIG.font_text:write(230, y, rooms[talk.place].name_short, 50, CONFIG.fgcolor2.rgb_with_a(alpha))
                     local line_y = y
                     for idx = 1, #talk.title_lines do

@@ -365,24 +365,34 @@ local content = switcher(function()
             coltex[3]:draw(0, 281, WIDTH, 900, 0.9)
             local y = 330
 
-            -- CONFIG.font:write(70, y, "audio", 50, CONFIG.fgcolor3.rgba())
-            -- CONFIG.font:write(420, y, current_room.dect, 50, CONFIG.fgcolor3.rgba())
+            if current_room.dect != "" then
+				CONFIG.font:write(70, y, "audio", 50, CONFIG.fgcolor3.rgba())
+            	CONFIG.font:write(420, y, current_room.dect, 50, CONFIG.fgcolor3.rgba())
+			end
 
-            -- y = y + 50
-            -- CONFIG.font:write(70, y, "translation", 50, CONFIG.fgcolor3.rgba())
-            -- CONFIG.font:write(420, y, current_room.translation, 50, CONFIG.fgcolor3.rgba())
-            -- y = y + 50 + 25
-            --
-            CONFIG.font_text:write(70, y, string.upper("irc"), 50, CONFIG.fgcolor3.rgba())
-            CONFIG.font_text:write(420, y, current_room.irc, 50, CONFIG.fgcolor3.rgba())
+            if current_room.translation != "" then
+				y = y + 55
+            	CONFIG.font:write(70, y, "translation", 50, CONFIG.fgcolor3.rgba())
+            	CONFIG.font:write(420, y, current_room.translation, 50, CONFIG.fgcolor3.rgba())
+			end
 
-            y = y + 50
-            CONFIG.font_text:write(70, y, "Hashtag", 50, CONFIG.fgcolor3.rgba())
-            CONFIG.font_text:write(420, y, current_room.hashtag, 50, CONFIG.fgcolor3.rgba())
+			if current_room.irc != "" then
+            	y = y + 55
+            	CONFIG.font_text:write(70, y, string.upper("irc"), 50, CONFIG.fgcolor3.rgba())
+            	CONFIG.font_text:write(420, y, current_room.irc, 50, CONFIG.fgcolor3.rgba())
+			end
+
+			if current_room.hashtag != "" then
+            	y = y + 55
+            	CONFIG.font_text:write(70, y, "Hashtag", 50, CONFIG.fgcolor3.rgba())
+            	CONFIG.font_text:write(420, y, current_room.hashtag, 50, CONFIG.fgcolor3.rgba())
+			end
             
-			y = y + 50 + 25
-            CONFIG.font_text:write(70, y, "Videos", 50, CONFIG.fgcolor3.rgba())
-            CONFIG.font_text:write(420, y, current_room.video_location, 50, CONFIG.fgcolor3.rgba())
+			if current_room.video_location != "" then
+				y = y + 55
+            	CONFIG.font_text:write(70, y, "Videos", 50, CONFIG.fgcolor3.rgba())
+            	CONFIG.font_text:write(420, y, current_room.video_location, 50, CONFIG.fgcolor3.rgba())
+			end
         end
     })
 

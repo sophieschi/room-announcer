@@ -377,7 +377,7 @@ local content = switcher(function()
             CONFIG.font_text:write(420, y, current_room.irc, 50, CONFIG.fgcolor3.rgba())
 
             y = y + 50
-            CONFIG.font_text:write(70, y, "hashtag", 50, CONFIG.fgcolor3.rgba())
+            CONFIG.font_text:write(70, y, "Hashtag", 50, CONFIG.fgcolor3.rgba())
             CONFIG.font_text:write(420, y, current_room.hashtag, 50, CONFIG.fgcolor3.rgba())
             
 			y = y + 50 + 25

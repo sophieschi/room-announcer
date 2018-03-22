@@ -26,6 +26,12 @@
         "type": "font",
         "default": "silkscreen.ttf"
     }, {
+        "title": "Font Text",
+        "ui_width": 4,
+        "name": "font_text",
+        "type": "font",
+        "default": "silkscreen.ttf"
+    }, {
         "title": "Transition",
         "ui_width": 4,
         "name": "transition",
@@ -52,14 +58,14 @@
             ["Europe/London", "Europa / London"],
             ["Europe/Berlin", "Europa / Berlin"]
         ],
-        "default": "UTC"
+        "default": "Europa/Berlin"
     }, {
         "title": "Day 0",
         "ui_width": 4,
         "name": "day0",
         "doc_link": true,
         "type": "string",
-        "default": "26.12.2015"
+        "default": "29.03.2018"
     }, {
         "title": "Text Offset",
         "ui_width": 4,
@@ -202,6 +208,13 @@
             "title": "IRC",
             "ui_width": 3,
             "name": "irc",
+            "doc_link": true,
+            "type": "string",
+            "default": ""
+        }, {
+            "title": "Videos",
+            "ui_width": 12,
+            "name": "video_location",
             "doc_link": true,
             "type": "string",
             "default": ""

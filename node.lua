@@ -270,18 +270,18 @@ local content = switcher(function()
 
                 CONFIG.font:write(70, 330, current_talk.start_str, 50, CONFIG.fgcolor1.rgba())
                 if delta > 180*60 then
-                    CONFIG.font:write(70, 330 + 60, string.format("in %d h", math.floor(delta/3600)), 50, CONFIG.fgcolor1.rgba())
+                    CONFIG.font_text:write(70, 330 + 60, string.format("in %d h", math.floor(delta/3600)), 50, CONFIG.fgcolor1.rgba())
                 elseif delta > 0 then
-                    CONFIG.font:write(70, 330 + 60, string.format("in %d min", math.floor(delta/60)+1), 50, CONFIG.fgcolor1.rgba())
+                    CONFIG.font_text:write(70, 330 + 60, string.format("in %d min", math.floor(delta/60)+1), 50, CONFIG.fgcolor1.rgba())
                 end
                 for idx, line in ipairs(current_talk.slide_lines) do
                     if idx >= 5 then
                         break
                     end
-                    CONFIG.font:write(420, 330 - 60 + 50 * idx, line, 50, CONFIG.fgcolor1.rgba())
+                    CONFIG.font_text:write(420, 330 - 60 + 50 * idx, line, 50, CONFIG.fgcolor1.rgba())
                 end
                 for i, speaker in ipairs(current_talk.speakers) do
-                    CONFIG.font:write(420 + ((i-1)%2) * 350, 550 + 30 * math.floor((i-1)/2), speaker, 30, CONFIG.fgcolor1.rgba())
+                    CONFIG.font_text:write(420 + ((i-1)%2) * 350, 550 + 30 * math.floor((i-1)/2), speaker, 30, CONFIG.fgcolor1.rgba())
                 end
             end
         end
@@ -313,14 +313,14 @@ local content = switcher(function()
 
                 return function(y)
                     CONFIG.font:write(70, y, talk.start_str, 50, CONFIG.fgcolor2.rgb_with_a(alpha))
-                    CONFIG.font:write(230, y, rooms[talk.place].name_short, 50, CONFIG.fgcolor2.rgb_with_a(alpha))
+                    CONFIG.font_text:write(230, y, rooms[talk.place].name_short, 50, CONFIG.fgcolor2.rgb_with_a(alpha))
                     local line_y = y
                     for idx = 1, #talk.title_lines do
                         local title = talk.title_lines[idx]
-                        CONFIG.font:write(CONFIG.text_offset, line_y, title, 30, CONFIG.fgcolor2.rgb_with_a(alpha))
+                        CONFIG.font_text:write(CONFIG.text_offset, line_y, title, 30, CONFIG.fgcolor2.rgb_with_a(alpha))
                         line_y = line_y + 28
                     end
-                    CONFIG.font:write(CONFIG.text_offset, line_y, talk.speaker_line, 30, CONFIG.fgcolor2.rgb_with_a(alpha*0.6))
+                    CONFIG.font_text:write(CONFIG.text_offset, line_y, talk.speaker_line, 30, CONFIG.fgcolor2.rgb_with_a(alpha*0.6))
                     line_y = line_y + 28
                     return math.max(60, line_y - y) + 5
                 end
@@ -339,7 +339,7 @@ local content = switcher(function()
                 end
             else
                 add_content(function()
-                    CONFIG.font:write(70, 310, "no other talks.", 50, CONFIG.fgcolor2.rgba())
+                    CONFIG.font_text:write(70, 310, "no other talks.", 50, CONFIG.fgcolor2.rgba())
                     return 50
                 end)
             end
@@ -374,11 +374,15 @@ local content = switcher(function()
             -- y = y + 50 + 25
             --
             CONFIG.font:write(70, y, "irc", 50, CONFIG.fgcolor3.rgba())
-            CONFIG.font:write(420, y, current_room.irc, 50, CONFIG.fgcolor3.rgba())
+            CONFIG.font_text:write(420, y, current_room.irc, 50, CONFIG.fgcolor3.rgba())
 
             y = y + 50
             CONFIG.font:write(70, y, "hashtag", 50, CONFIG.fgcolor3.rgba())
-            CONFIG.font:write(420, y, current_room.hashtag, 50, CONFIG.fgcolor3.rgba())
+            CONFIG.font_text:write(420, y, current_room.hashtag, 50, CONFIG.fgcolor3.rgba())
+            
+			y = y + 50 + 25
+            CONFIG.font:write(70, y, "Videos", 50, CONFIG.fgcolor3.rgba())
+            CONFIG.font_text:write(420, y, current_room.video_location, 50, CONFIG.fgcolor3.rgba())
         end
     })
 
@@ -399,7 +403,7 @@ function node.render()
     CONFIG.background.ensure_loaded():draw(0, 0, WIDTH, HEIGHT)
 
     CONFIG.font:write(70, 42, clock.get(), 50, CONFIG.header_color.rgb_with_a(0.8))
-    CONFIG.font:write(250, 42, current_room.name_short, 50, CONFIG.header_color.rgb_with_a(0.8))
+    CONFIG.font:write(250, 42, current_room.name, 50, CONFIG.header_color.rgb_with_a(0.8))
     CONFIG.font:write(70, 92, "day " .. day, 50, CONFIG.header_color.rgb_with_a(0.8))
 
     local fov = math.atan2(HEIGHT, WIDTH*2) * 360 / math.pi

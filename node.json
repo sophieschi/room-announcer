@@ -1,0 +1,210 @@
+{
+    "name": "Room Preview",
+    "permissions": {
+        "network": "Has to fetch schedule from remote site"
+    },
+    "options": [{
+        "title": "Appearance",
+        "type": "section"
+    }, {
+        "title": "Header color",
+        "ui_width": 4,
+        "name": "header_color",
+        "type": "color",
+        "default": [1,1,1,1]
+    }, {
+        "title": "Background",
+        "ui_width": 4,
+        "name": "background",
+        "type": "resource",
+        "valid": ["image", "video", "child"],
+        "default": "empty.png"
+    }, {
+        "title": "Font",
+        "ui_width": 4,
+        "name": "font",
+        "type": "font",
+        "default": "silkscreen.ttf"
+    }, {
+        "title": "Transition",
+        "ui_width": 4,
+        "name": "transition",
+        "type": "select",
+        "hint": "How to switch between slides",
+        "options": [
+            ["crossfade", "Crossfade"],
+            ["rotate", "Rotate"]
+        ],
+        "default": "crossfade"
+    },
+
+    {
+        "title": "Options",
+        "type": "section"
+    }, {
+        "title": "Time Zone",
+        "ui_width": 4,
+        "name": "timezone",
+        "type": "select",
+        "hint": "The timezone",
+        "options": [
+            ["UTC", "UTC"],
+            ["Europe/London", "Europa / London"],
+            ["Europe/Berlin", "Europa / Berlin"]
+        ],
+        "default": "UTC"
+    }, {
+        "title": "Day 0",
+        "ui_width": 4,
+        "name": "day0",
+        "doc_link": true,
+        "type": "string",
+        "default": "26.12.2015"
+    }, {
+        "title": "Text Offset",
+        "ui_width": 4,
+        "name": "text_offset",
+        "doc_link": true,
+        "type": "string",
+        "hint": "Increase for longer Room Names",
+        "default": "500"
+    },
+
+    {
+        "title": "Screens",
+        "type": "section"
+    }, {
+        "title": "Current Room (seconds)",
+        "ui_width": 4,
+        "name": "current_room",
+        "doc_link": true,
+        "type": "duration",
+        "hint": "How long to display current talk information",
+        "default": 15
+    }, {
+        "title": "Other Rooms (seconds)",
+        "ui_width": 4,
+        "name": "other_rooms",
+        "doc_link": true,
+        "type": "duration",
+        "hint": "How long to display other room information",
+        "default": 25
+    }, {
+        "title": "Room info (seconds)",
+        "ui_width": 4,
+        "name": "room_info",
+        "doc_link": true,
+        "type": "duration",
+        "hint": "How long to display room information",
+        "default": 10
+    },
+
+    {
+        "title": "Background Color",
+        "ui_width": 4,
+        "name": "bgcolor1",
+        "type": "color",
+        "default": [1,1,1,1]
+    }, {
+        "title": "Background Color",
+        "ui_width": 4,
+        "name": "bgcolor2",
+        "type": "color",
+        "default": [1,1,1,1]
+    }, {
+        "title": "Background Color",
+        "ui_width": 4,
+        "name": "bgcolor3",
+        "type": "color",
+        "default": [1,1,1,1]
+    },
+
+    {
+        "title": "Foreground Color",
+        "ui_width": 4,
+        "name": "fgcolor1",
+        "type": "color",
+        "default": [0,0,0,1]
+    }, {
+        "title": "Foreground Color",
+        "ui_width": 4,
+        "name": "fgcolor2",
+        "type": "color",
+        "default": [0,0,0,1]
+    }, {
+        "title": "Foreground Color",
+        "ui_width": 4,
+        "name": "fgcolor3",
+        "type": "color",
+        "default": [0,0,0,1]
+    },
+
+    {
+        "title": "Scheduling",
+        "type": "section"
+    }, {
+        "title": "XML Fahrplan Url",
+        "ui_width": 10,
+        "name": "schedule_url",
+        "doc_link": true,
+        "type": "string",
+        "default": "https://eh15.easterhegg.eu/frab/en/eh15/public/schedule.xml"
+    }, {
+        "title": "Rooms",
+        "name": "rooms",
+        "doc_link": true,
+        "type": "list",
+        "itemname": "Room",
+        "hint": "Room definitions",
+        "items": [{
+            "title": "Room Name",
+            "ui_width": 4,
+            "name": "name",
+            "doc_link": true,
+            "type": "string",
+            "default": ""
+        }, {
+            "title": "Room Short Name",
+            "ui_width": 4,
+            "name": "name_short",
+            "doc_link": true,
+            "type": "string",
+            "default": ""
+        }, {
+            "title": "Device Serial",
+            "ui_width": 4,
+            "name": "serial",
+            "doc_link": true,
+            "type": "string",
+            "default": ""
+        }, {
+            "title": "Dect",
+            "ui_width": 3,
+            "name": "dect",
+            "doc_link": true,
+            "type": "string",
+            "default": ""
+        }, {
+            "title": "Translation",
+            "ui_width": 3,
+            "name": "translation",
+            "doc_link": true,
+            "type": "string",
+            "default": ""
+        }, {
+            "title": "Hashtag",
+            "ui_width": 3,
+            "name": "hashtag",
+            "doc_link": true,
+            "type": "string",
+            "default": ""
+        }, {
+            "title": "IRC",
+            "ui_width": 3,
+            "name": "irc",
+            "doc_link": true,
+            "type": "string",
+            "default": ""
+        }]
+    }]
+}

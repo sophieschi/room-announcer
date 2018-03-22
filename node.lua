@@ -29,7 +29,7 @@ node.event("config_update", function(config)
         rooms[room.name] = room
     end
     spacer = resource.create_colored_texture(CONFIG.fgcolor1.rgba())
-
+	print(current_room.name)
     coltex = {
         resource.create_colored_texture(CONFIG.bgcolor1.rgba()),
         resource.create_colored_texture(CONFIG.bgcolor2.rgba()),

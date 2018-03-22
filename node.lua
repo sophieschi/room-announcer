@@ -256,15 +256,15 @@ local content = switcher(function()
         end;
         draw = function()
             if not current_talk then
-                CONFIG.font:write(70, 170, "next talk", 80, CONFIG.header_color.rgba())
+                CONFIG.font:write(70, 170, string.upper("next talk"), 80, CONFIG.header_color.rgba())
                 coltex[1]:draw(0, 281, WIDTH, 900, 0.9)
                 CONFIG.font:write(70, 330, "nope. That's it.", 50, CONFIG.fgcolor1.rgba())
             else
                 local delta = current_talk.start_unix - get_now()
                 if delta > 0 then
-                    CONFIG.font:write(70, 170, "next talk", 80, CONFIG.header_color.rgba())
+                    CONFIG.font:write(70, 170, string.upper("next talk"), 80, CONFIG.header_color.rgba())
                 else
-                    CONFIG.font:write(70, 170, "this talk", 80, CONFIG.header_color.rgba())
+                    CONFIG.font:write(70, 170, string.upper("this talk"), 80, CONFIG.header_color.rgba())
                 end
                 coltex[1]:draw(0, 281, WIDTH, 900, 0.9)
 
@@ -373,7 +373,7 @@ local content = switcher(function()
             -- CONFIG.font:write(420, y, current_room.translation, 50, CONFIG.fgcolor3.rgba())
             -- y = y + 50 + 25
             --
-            CONFIG.font:write(70, y, "irc", 50, CONFIG.fgcolor3.rgba())
+            CONFIG.font:write(70, y, string.upper("irc"), 50, CONFIG.fgcolor3.rgba())
             CONFIG.font_text:write(420, y, current_room.irc, 50, CONFIG.fgcolor3.rgba())
 
             y = y + 50

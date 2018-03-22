@@ -347,7 +347,7 @@ local content = switcher(function()
             return content
         end;
         draw = function(content)
-            CONFIG.font:write(70, 170, "other talks", 80, CONFIG.header_color.rgba())
+            CONFIG.font:write(70, 170, string.upper("other talks"), 80, CONFIG.header_color.rgba())
             coltex[2]:draw(0, 281, WIDTH, 900, 0.9)
             local y = 330
             for _, func in ipairs(content) do
@@ -373,15 +373,15 @@ local content = switcher(function()
             -- CONFIG.font:write(420, y, current_room.translation, 50, CONFIG.fgcolor3.rgba())
             -- y = y + 50 + 25
             --
-            CONFIG.font:write(70, y, string.upper("irc"), 50, CONFIG.fgcolor3.rgba())
+            CONFIG.font_text:write(70, y, string.upper("irc"), 50, CONFIG.fgcolor3.rgba())
             CONFIG.font_text:write(420, y, current_room.irc, 50, CONFIG.fgcolor3.rgba())
 
             y = y + 50
-            CONFIG.font:write(70, y, "hashtag", 50, CONFIG.fgcolor3.rgba())
+            CONFIG.font_text:write(70, y, "hashtag", 50, CONFIG.fgcolor3.rgba())
             CONFIG.font_text:write(420, y, current_room.hashtag, 50, CONFIG.fgcolor3.rgba())
             
 			y = y + 50 + 25
-            CONFIG.font:write(70, y, "Videos", 50, CONFIG.fgcolor3.rgba())
+            CONFIG.font_text:write(70, y, "Videos", 50, CONFIG.fgcolor3.rgba())
             CONFIG.font_text:write(420, y, current_room.video_location, 50, CONFIG.fgcolor3.rgba())
         end
     })
@@ -393,8 +393,8 @@ function node.render()
     if base_time == 0 then
         gl.clear(0,0,0,1)
         CONFIG.background.ensure_loaded():draw(0, 0, WIDTH, HEIGHT)
-        local w = CONFIG.font:width("loading...", 50)
-        CONFIG.font:write((WIDTH - w) / 2, HEIGHT/2 - 25, "loading...", 50, 1, 1, 1, 1)
+        local w = CONFIG.font:width("LOADING...", 50)
+        CONFIG.font:write((WIDTH - w) / 2, HEIGHT/2 - 25, "LOADING...", 50, 1, 1, 1, 1)
         return
     end
 
@@ -403,8 +403,8 @@ function node.render()
     CONFIG.background.ensure_loaded():draw(0, 0, WIDTH, HEIGHT)
 
     CONFIG.font:write(70, 42, clock.get(), 50, CONFIG.header_color.rgb_with_a(0.8))
-    CONFIG.font:write(250, 42, current_room.name, 50, CONFIG.header_color.rgb_with_a(0.8))
-    CONFIG.font:write(70, 92, "day " .. day, 50, CONFIG.header_color.rgb_with_a(0.8))
+    CONFIG.font:write(250, 42, string.upper(current_room.name), 50, CONFIG.header_color.rgb_with_a(0.8))
+    CONFIG.font:write(70, 92, "DAY " .. day, 50, CONFIG.header_color.rgb_with_a(0.8))
 
     local fov = math.atan2(HEIGHT, WIDTH*2) * 360 / math.pi
     gl.perspective(fov, WIDTH/2, HEIGHT/2, -WIDTH,

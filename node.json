@@ -212,9 +212,16 @@
             "type": "string",
             "default": ""
         }, {
-            "title": "Videos",
+            "title": "Other Info Title",
             "ui_width": 12,
-            "name": "video_location",
+            "name": "other_title",
+            "doc_link": true,
+            "type": "string",
+            "default": ""
+        }, {
+            "title": "Other Info Text",
+            "ui_width": 12,
+            "name": "other_text",
             "doc_link": true,
             "type": "string",
             "default": ""

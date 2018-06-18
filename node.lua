@@ -361,7 +361,7 @@ local content = switcher(function()
         prepare = function()
         end;
         draw = function()
-            CONFIG.font:write(70, 170, "room information", 80, CONFIG.header_color.rgba())
+            CONFIG.font:write(70, 170, string.upper("room information"), 80, CONFIG.header_color.rgba())
             coltex[3]:draw(0, 281, WIDTH, 900, 0.9)
             local y = 330
 
@@ -389,9 +389,9 @@ local content = switcher(function()
             	y = y + 55
 			end
             
-			if current_room.video_location ~= "" then
-            	CONFIG.font_text:write(70, y, "Videos", 50, CONFIG.fgcolor3.rgba())
-            	CONFIG.font_text:write(420, y, current_room.video_location, 50, CONFIG.fgcolor3.rgba())
+			if current_room.other_title ~= "" then
+            	CONFIG.font_text:write(70, y, current_room.other_title, 50, CONFIG.fgcolor3.rgba())
+            	CONFIG.font_text:write(420, y, current_room.other_text, 50, CONFIG.fgcolor3.rgba())
             	y = y + 55
 			end
         end

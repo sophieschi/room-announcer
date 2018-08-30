@@ -349,7 +349,7 @@ local content = switcher(function()
         draw = function(content)
             CONFIG.font:write(70, 170, string.upper("other talks"), 80, CONFIG.header_color.rgba())
             coltex[2]:draw(0, 281, WIDTH, 900, 0.9)
-            local y = 280
+            local y = 330
             for _, func in ipairs(content) do
                 y = y + func(y)
             end
@@ -363,7 +363,7 @@ local content = switcher(function()
         draw = function()
             CONFIG.font:write(70, 170, string.upper("room information"), 80, CONFIG.header_color.rgba())
             coltex[3]:draw(0, 281, WIDTH, 900, 0.9)
-            local y = 280
+            local y = 330
 
             if current_room.dect ~= "" then
 				CONFIG.font:write(70, y, "audio", 50, CONFIG.fgcolor3.rgba())

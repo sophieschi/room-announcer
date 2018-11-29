@@ -256,15 +256,15 @@ local content = switcher(function()
         end;
         draw = function()
             if not current_talk then
-                CONFIG.font:write(70, 170, string.upper("nächster vortrag"), 80, CONFIG.header_color.rgba())
+                CONFIG.font:write(70, 170, "Nächster Vortrag", 80, CONFIG.header_color.rgba())
                 coltex[1]:draw(0, 281, WIDTH, 900, 0.9)
-                CONFIG.font:write(70, 330, "nope. That's it.", 50, CONFIG.fgcolor1.rgba())
+                CONFIG.font:write(70, 330, "Das war's. Vielen Dank.", 50, CONFIG.fgcolor1.rgba())
             else
                 local delta = current_talk.start_unix - get_now()
                 if delta > 0 then
-                    CONFIG.font:write(70, 170, string.upper("nächster vortrag"), 80, CONFIG.header_color.rgba())
+                    CONFIG.font:write(70, 170, "Nächster Vortrag", 80, CONFIG.header_color.rgba())
                 else
-                    CONFIG.font:write(70, 170, string.upper("dieser ortrag"), 80, CONFIG.header_color.rgba())
+                    CONFIG.font:write(70, 170, "Dieser Vortrag"), 80, CONFIG.header_color.rgba())
                 end
                 coltex[1]:draw(0, 281, WIDTH, 900, 0.9)
 
@@ -347,7 +347,7 @@ local content = switcher(function()
             return content
         end;
         draw = function(content)
-            CONFIG.font:write(70, 170, string.upper("Weitere Vorträge"), 80, CONFIG.header_color.rgba())
+            CONFIG.font:write(70, 170, "Weitere Vorträge", 80, CONFIG.header_color.rgba())
             coltex[2]:draw(0, 281, WIDTH, 900, 0.9)
             local y = 330
             for _, func in ipairs(content) do
@@ -361,7 +361,7 @@ local content = switcher(function()
         prepare = function()
         end;
         draw = function()
-            CONFIG.font:write(70, 170, string.upper("Informationen"), 80, CONFIG.header_color.rgba())
+            CONFIG.font:write(70, 170, "Informationen", 80, CONFIG.header_color.rgba())
             coltex[3]:draw(0, 281, WIDTH, 900, 0.9)
             local y = 330
 
@@ -414,7 +414,7 @@ function node.render()
     CONFIG.background.ensure_loaded():draw(0, 0, WIDTH, HEIGHT)
 
     CONFIG.font:write(70, 42, clock.get(), 50, CONFIG.header_color.rgb_with_a(0.8))
-    CONFIG.font:write(250, 42, string.upper(current_room.name), 50, CONFIG.header_color.rgb_with_a(0.8))
+    CONFIG.font:write(250, 42, current_room.name, 50, CONFIG.header_color.rgb_with_a(0.8))
     CONFIG.font:write(70, 92, "Tag " .. day, 50, CONFIG.header_color.rgb_with_a(0.8))
 
     local fov = math.atan2(HEIGHT, WIDTH*2) * 360 / math.pi

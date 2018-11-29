@@ -256,15 +256,15 @@ local content = switcher(function()
         end;
         draw = function()
             if not current_talk then
-                CONFIG.font:write(70, 170, string.upper("next talk"), 80, CONFIG.header_color.rgba())
+                CONFIG.font:write(70, 170, string.upper("nächster vortrag"), 80, CONFIG.header_color.rgba())
                 coltex[1]:draw(0, 281, WIDTH, 900, 0.9)
                 CONFIG.font:write(70, 330, "nope. That's it.", 50, CONFIG.fgcolor1.rgba())
             else
                 local delta = current_talk.start_unix - get_now()
                 if delta > 0 then
-                    CONFIG.font:write(70, 170, string.upper("next talk"), 80, CONFIG.header_color.rgba())
+                    CONFIG.font:write(70, 170, string.upper("nächster vortrag"), 80, CONFIG.header_color.rgba())
                 else
-                    CONFIG.font:write(70, 170, string.upper("this talk"), 80, CONFIG.header_color.rgba())
+                    CONFIG.font:write(70, 170, string.upper("dieser ortrag"), 80, CONFIG.header_color.rgba())
                 end
                 coltex[1]:draw(0, 281, WIDTH, 900, 0.9)
 
@@ -308,7 +308,7 @@ local content = switcher(function()
                 if is_running then
                     alpha = 0.5
                 else
-                    alpha = 1.0
+                    alpha = 1.010
                 end
 
                 return function(y)
@@ -339,7 +339,7 @@ local content = switcher(function()
                 end
             else
                 add_content(function()
-                    CONFIG.font_text:write(70, 310, "no other talks.", 50, CONFIG.fgcolor2.rgba())
+                    CONFIG.font_text:write(70, 310, "Keine weiteren Vorträge.", 50, CONFIG.fgcolor2.rgba())
                     return 50
                 end)
             end
@@ -347,7 +347,7 @@ local content = switcher(function()
             return content
         end;
         draw = function(content)
-            CONFIG.font:write(70, 170, string.upper("other talks"), 80, CONFIG.header_color.rgba())
+            CONFIG.font:write(70, 170, string.upper("Weitere Vorträge"), 80, CONFIG.header_color.rgba())
             coltex[2]:draw(0, 281, WIDTH, 900, 0.9)
             local y = 330
             for _, func in ipairs(content) do
@@ -361,7 +361,7 @@ local content = switcher(function()
         prepare = function()
         end;
         draw = function()
-            CONFIG.font:write(70, 170, string.upper("room information"), 80, CONFIG.header_color.rgba())
+            CONFIG.font:write(70, 170, string.upper("Informationen"), 80, CONFIG.header_color.rgba())
             coltex[3]:draw(0, 281, WIDTH, 900, 0.9)
             local y = 330
 
@@ -415,7 +415,7 @@ function node.render()
 
     CONFIG.font:write(70, 42, clock.get(), 50, CONFIG.header_color.rgb_with_a(0.8))
     CONFIG.font:write(250, 42, string.upper(current_room.name), 50, CONFIG.header_color.rgb_with_a(0.8))
-    CONFIG.font:write(70, 92, "DAY " .. day, 50, CONFIG.header_color.rgb_with_a(0.8))
+    CONFIG.font:write(70, 92, "Tag " .. day, 50, CONFIG.header_color.rgb_with_a(0.8))
 
     local fov = math.atan2(HEIGHT, WIDTH*2) * 360 / math.pi
     gl.perspective(fov, WIDTH/2, HEIGHT/2, -WIDTH,

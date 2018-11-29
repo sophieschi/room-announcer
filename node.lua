@@ -264,7 +264,7 @@ local content = switcher(function()
                 if delta > 0 then
                     CONFIG.font:write(70, 170, "Nächster Vortrag", 80, CONFIG.header_color.rgba())
                 else
-                    CONFIG.font:write(70, 170, "Dieser Vortrag"), 80, CONFIG.header_color.rgba())
+                    CONFIG.font:write(70, 170, "Dieser Vortrag", 80, CONFIG.header_color.rgba())
                 end
                 coltex[1]:draw(0, 281, WIDTH, 900, 0.9)
 

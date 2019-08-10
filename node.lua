@@ -312,16 +312,16 @@ local content = switcher(function()
                 end
 
                 return function(y)
-                    CONFIG.font_text:write(70, y, talk.start_str, 45, CONFIG.fgcolor2.rgb_with_a(alpha))
-                    CONFIG.font_text:write(230, y, rooms[talk.place].name_short, 45, CONFIG.fgcolor2.rgb_with_a(alpha))
+                    CONFIG.font_text:write(70, y, talk.start_str, 40, CONFIG.fgcolor2.rgb_with_a(alpha))
+                    CONFIG.font_text:write(230, y, rooms[talk.place].name_short, 40, CONFIG.fgcolor2.rgb_with_a(alpha))
                     local line_y = y
                     for idx = 1, #talk.title_lines do
                         local title = talk.title_lines[idx]
                         CONFIG.font_text:write(CONFIG.text_offset, line_y, title, 25, CONFIG.fgcolor2.rgb_with_a(alpha))
-                        line_y = line_y + 23
+                        line_y = line_y + 24
                     end
                     CONFIG.font_text:write(CONFIG.text_offset, line_y, talk.speaker_line, 25, CONFIG.fgcolor2.rgb_with_a(alpha*0.6))
-                    line_y = line_y + 23
+                    line_y = line_y + 24
                     return math.max(60, line_y - y) + 4
                 end
             end
@@ -349,7 +349,7 @@ local content = switcher(function()
         draw = function(content)
             CONFIG.font:write(70, 170, "Weitere Vorträge", 80, CONFIG.header_color.rgba())
             coltex[2]:draw(0, 281, WIDTH, 900, 0.9)
-            local y = 330
+            local y = 280
             for _, func in ipairs(content) do
                 y = y + func(y)
             end
@@ -363,7 +363,7 @@ local content = switcher(function()
         draw = function()
             CONFIG.font:write(70, 170, "Informationen", 80, CONFIG.header_color.rgba())
             coltex[3]:draw(0, 281, WIDTH, 900, 0.9)
-            local y = 330
+            local y = 280
 
             if current_room.dect ~= "" then
 				CONFIG.font:write(70, y, "audio", 50, CONFIG.fgcolor3.rgba())

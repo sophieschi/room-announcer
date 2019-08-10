@@ -322,7 +322,7 @@ local content = switcher(function()
                     end
                     CONFIG.font_text:write(CONFIG.text_offset, line_y, talk.speaker_line, 25, CONFIG.fgcolor2.rgb_with_a(alpha*0.6))
                     line_y = line_y + 24
-                    return math.max(60, line_y - y) + 3
+                    return math.max(50, line_y - y) + 3
                 end
             end
 

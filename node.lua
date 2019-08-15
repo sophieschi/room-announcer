@@ -312,15 +312,15 @@ local content = switcher(function()
                 end
 
                 return function(y)
-                    CONFIG.font_text:write(70, y, talk.start_str, 50, CONFIG.fgcolor2.rgb_with_a(alpha))
-                    CONFIG.font_text:write(230, y, rooms[talk.place].name_short, 50, CONFIG.fgcolor2.rgb_with_a(alpha))
+                    CONFIG.font_text:write(70, y, talk.start_str, 45, CONFIG.fgcolor2.rgb_with_a(alpha))
+                    CONFIG.font_text:write(230, y, rooms[talk.place].name_short, 45, CONFIG.fgcolor2.rgb_with_a(alpha))
                     local line_y = y
                     for idx = 1, #talk.title_lines do
                         local title = talk.title_lines[idx]
-                        CONFIG.font_text:write(CONFIG.text_offset, line_y, title, 40, CONFIG.fgcolor2.rgb_with_a(alpha))
-                        line_y = line_y + 30
+                        CONFIG.font_text:write(CONFIG.text_offset, line_y, title, 25, CONFIG.fgcolor2.rgb_with_a(alpha))
+                        line_y = line_y + 23
                     end
-                    CONFIG.font_text:write(CONFIG.text_offset, line_y, talk.speaker_line, 40, CONFIG.fgcolor2.rgb_with_a(alpha*0.6))
+                    CONFIG.font_text:write(CONFIG.text_offset, line_y, talk.speaker_line, 25, CONFIG.fgcolor2.rgb_with_a(alpha*0.6))
                     line_y = line_y + 23
                     return math.max(60, line_y - y) + 4
                 end

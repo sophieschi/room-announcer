@@ -56,7 +56,8 @@
         "options": [
             ["UTC", "UTC"],
             ["Europe/London", "Europa / London"],
-            ["Europe/Berlin", "Europa / Berlin"]
+            ["Europe/Berlin", "Europa / Berlin"],
+			["Europe/Bucharest", "Europe / Bucharest"]
         ],
         "default": "Europa/Berlin"
     }, {
